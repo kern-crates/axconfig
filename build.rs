@@ -7,6 +7,8 @@ fn resolve_config_path(platform: Option<&str>) -> Result<PathBuf> {
     root_dir.extend([".."]);
     let config_dir = root_dir.join("platforms");
 
+    println!("config_dir: {:?}", config_dir.display());
+
     let builtin_platforms = std::fs::read_dir(&config_dir)?
         .filter_map(|e| {
             e.unwrap()
