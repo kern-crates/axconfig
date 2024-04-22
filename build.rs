@@ -4,7 +4,6 @@ use toml_edit::{Decor, Document, Item, Table, Value};
 
 fn resolve_config_path(platform: Option<&str>) -> Result<PathBuf> {
     let mut root_dir = PathBuf::from(std::env!("CARGO_MANIFEST_DIR"));
-    root_dir.extend([".."]);
     let config_dir = root_dir.join("platforms");
 
     eprintln!("config_dir: {:?}", config_dir.display());
