@@ -7,7 +7,7 @@ fn resolve_config_path(platform: Option<&str>) -> Result<PathBuf> {
     root_dir.extend([".."]);
     let config_dir = root_dir.join("platforms");
 
-    println!("config_dir: {:?}", config_dir.display());
+    eprintln!("config_dir: {:?}", config_dir.display());
 
     let builtin_platforms = std::fs::read_dir(&config_dir)?
         .filter_map(|e| {
@@ -157,6 +157,7 @@ fn gen_config_rs(config_path: &Path) -> Result<Vec<u8>> {
 
 fn main() -> Result<()> {
     let platform = option_env!("AX_PLATFORM");
+    eprintln!("platform: {}", platform);
     let config_path = resolve_config_path(platform)?;
 
     println!("Reading config file: {:?}", config_path);
