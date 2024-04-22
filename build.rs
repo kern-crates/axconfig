@@ -156,7 +156,6 @@ fn gen_config_rs(config_path: &Path) -> Result<Vec<u8>> {
 
 fn main() -> Result<()> {
     let platform = option_env!("AX_PLATFORM");
-    eprintln!("platform: {}", platform);
     let config_path = resolve_config_path(platform)?;
 
     println!("Reading config file: {:?}", config_path);
